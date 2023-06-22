@@ -1,9 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import usersRepository from '../Repositories/UsersRepository.js';
 import jwt from 'jsonwebtoken';
-import { Prisma } from '@prisma/client'; // Import the Prisma types for your database
 
-interface User extends Prisma.user {
+interface User {
     id: number;
     email: string;
     name: string;
@@ -39,7 +38,7 @@ export default {
       try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET as string);
 
-        if (decoded.exp > Date.now()) {
+        if ("exp" in decoded && decoded.exp > Date.now()) {
           return res.status(401).send({ error: 'Unauthorized' });
         }
 

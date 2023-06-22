@@ -1,12 +1,13 @@
 import BaseRepository from './BaseRepository.js';
 import { PrismaClient } from '@prisma/client'
+import { Authenticatable } from '../Mixins/AuthenticatableMixin.js';
 
 interface LoginData {
   email: string;
   password: string;
 }
 
-class UserRepository extends BaseRepository {
+class UserRepository extends Authenticatable(BaseRepository) {
   public prisma: PrismaClient;
 
   constructor() {

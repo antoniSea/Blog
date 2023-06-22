@@ -10,3 +10,4 @@ router.put('/users/:id', userControllers.update);
 router.post('/toggle-dark-mode', auth.loggedIn, userControllers.toggleDarkMode);
 
 export default router;
+
