@@ -8,15 +8,18 @@
       <label for="darkModeSwitch" class="dark:text-white">Dark Mode</label>
 
       <nav class="dark:text-white mt-4">
-        <nuxt-link href="/" class="dark:hover:bg-gray-500 dark:bg-gray-900  block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-400 hover:text-white">
+        <NavLink href="/">
           Strona główna
-        </nuxt-link>
-        <nuxt-link href="/dashboard" class="dark:hover:bg-gray-500 dark:bg-gray-900  block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-400 hover:text-white">
+        </NavLink>
+        <NavLink href="/dashboard">
           Users
-        </nuxt-link>
-        <nuxt-link href="/dashboard/posts" class="dark:hover:bg-gray-500 dark:bg-gray-900  block py-2.5 px-4 rounded mt-2 transition duration-200 hover:bg-blue-400 hover:text-white">
+        </NavLink>
+        <NavLink href="/dashboard/posts">
           Posts
-        </nuxt-link>
+        </NavLink>
+        <NavLink href="/dashboard/newsletter">
+          Newsletter stats
+        </NavLink>
         <button class="dark:bg-gray-900 dark:hover:bg-gray-500 block py-2.5 px-4 rounded mt-2 transition duration-200 hover:bg-blue-400 hover:text-white" @click="logOut">
           Log out
         </button>
@@ -32,6 +35,7 @@
 
 <script setup lang="ts">
   import axios from "axios";
+  import NavLink from "~/components/Dashboard/NavLink.vue";
 
   const isDarkMode = ref<boolean>(false);
   const isSidebarExpanded = ref<boolean>(false);

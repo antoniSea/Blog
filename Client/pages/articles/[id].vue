@@ -7,14 +7,12 @@
         powrót
       </nuxt-link>
     </div>
-    <h2 class="text-xl text-gray-600 mb-8">By {{ post.author.name }}</h2>
+    <h2 class="text-xl text-gray-600 mb-8">By {{ post.name }}</h2>
     <p class="text-gray-600 text-lg whitespace-pre-line">{{ post.content }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { useRoute } from 'vue-router';
 import axios from 'axios';
 import Post from '~/types/Blog/Post';
 
@@ -23,6 +21,6 @@ const route = useRoute();
 
 onMounted(async (): Promise<void> => {
   const { data } = await axios.get(`${useRuntimeConfig().public.API_URL}posts/${route.params.id}`);
-  post.value = data.post;
+  post.value = data;
 });
 </script>

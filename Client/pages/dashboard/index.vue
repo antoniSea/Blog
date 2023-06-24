@@ -3,15 +3,15 @@
     Dashboard
   </h1>
 
-  <div class="flex items-start mt-4">
-    <div v-for="user in users">
-      <nuxt-link :href="`dashboard/users/${user.id}`">
-        <UserCard class="mr-3" :user="user" />
+  <div class="flex flex-wrap items-start mt-4">
+    <div v-for="user in users" :key="user.id" class="mr-3 mb-3">
+      <nuxt-link :to="`dashboard/users/${user.id}`">
+        <UserCard :user="user" />
       </nuxt-link>
     </div>
   </div>
 
-  <nuxt-link class="block mt-4" href="dashboard/users/create">
+  <nuxt-link class="block mt-4" :to="'dashboard/users/create'">
     <SubmitButton>
       Dodaj użytkownika
     </SubmitButton>
@@ -34,3 +34,4 @@ onMounted(async () => {
   users.value = response;
 });
 </script>
+

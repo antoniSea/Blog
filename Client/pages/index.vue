@@ -17,14 +17,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
 import axios from 'axios';
-import Post from '~/types/Blog/Post';
 
 const posts = ref<any[]>([]);
 
 onMounted(async (): Promise<void> => {
   const { data } = await axios.get(`${useRuntimeConfig().public.API_URL}all-posts`);
-  posts.value = data.posts.data;
+  posts.value = data.data;
 });
 </script>

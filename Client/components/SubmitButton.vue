@@ -1,5 +1,5 @@
 <template>
-  <button :disabled="disabled" class="px-4 py-2 bg-blue-500 rounded text-white disabled:bg-gray-500">
+  <button :disabled="disabled" class="px-4 py-2 bg-blue-600 rounded-md text-white disabled:bg-gray-500 hover:bg-blue-800">
     <slot />
   </button>
 </template>

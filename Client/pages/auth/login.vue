@@ -60,7 +60,7 @@
   const submitForm = async (): Promise<void> => {
     try {
       form.processing = true;
-      const { data } = await axios.post(`http://localhost:8011/require-token`, form);
+      const { data } = await axios.post(`${useRuntimeConfig().public.API_URL}require-token`, form);
 
       const token = useCookie('token');
       token.value = data.token;
